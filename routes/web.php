@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\PaymentController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -52,5 +53,9 @@ Route::middleware(['auth', 'verified', 'role:commerce'])->group(function () {
     Route::get('/commerce/orders', [\App\Http\Controllers\OrderController::class, 'commerceOrders'])->name('commerce.orders');
     Route::put('/commerce/orders/{order}/status', [\App\Http\Controllers\OrderController::class, 'updateStatus'])->name('commerce.orders.status');
 });
+
+// ── PayU ──────────────────────────────────────────
+Route::get('/checkout-test', [PaymentController::class, 'preparePayment']);
+Route::post('/payu/webhook', [PaymentController::class, 'webhook']);
 
 require __DIR__.'/auth.php';

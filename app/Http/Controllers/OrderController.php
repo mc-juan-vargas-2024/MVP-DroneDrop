@@ -57,22 +57,49 @@ class OrderController extends Controller
             abort(403);
         }
 
+        $deliveryCost  = (float) $request->input('delivery_cost', 20.00);
+        $paymentMethod = $request->input('payment_method', 'contra_entrega');
+
         $order->update(['status' => 'confirmed']);
-        
+
         $order->delivery()->create([
-            'method' => $request->input('method', 'motocicleta'),
-            'cost' => $request->input('delivery_cost', 5.00),
-            'estimated_time' => 30, // minutes
-            'status' => 'pending'
+            'method'         => $request->input('method', 'motocicleta'),
+            'cost'           => $deliveryCost,
+            'estimated_time' => 30,
+            'status'         => 'pending',
         ]);
 
         $order->payment()->create([
-            'method' => $request->input('payment_method', 'contra_entrega'),
-            'amount' => $order->total_amount + $request->input('delivery_cost', 5.00),
-            'status' => 'approved'
+            'method' => $paymentMethod,
+            'amount' => $order->total_amount + $deliveryCost,
+            'status' => 'pending',
         ]);
 
-        return redirect()->route('orders.index')->with('status', 'Pedido confirmado con exito.');
+        // ── Si el pago es online, redirigir a PayU ──────────────────────
+        if (in_array($paymentMethod, ['tarjeta_credito', 'tarjeta_debito'])) {
+            $apiKey        = env('PAYU_API_KEY');
+            $merchantId    = env('PAYU_MERCHANT_ID');
+            $accountId     = env('PAYU_ACCOUNT_ID');
+            $test          = env('PAYU_TEST', '1');
+            $payuUrl       = env('PAYU_URL');
+
+            $referenceCode = 'Pedido-' . $order->id . '-' . time();
+            $amount        = (string) intval($order->total_amount + $deliveryCost);
+            $currency      = 'COP';
+            $description   = 'Pedido #' . $order->id . ' en DroneDrop';
+            $buyerEmail    = auth()->user()->email;
+
+            // Firma: md5(apiKey~merchantId~referenceCode~amount~currency)
+            $signature = md5("{$apiKey}~{$merchantId}~{$referenceCode}~{$amount}~{$currency}");
+
+            return view('payu.checkout', compact(
+                'merchantId', 'accountId', 'description', 'referenceCode',
+                'amount', 'currency', 'signature', 'test', 'buyerEmail', 'payuUrl'
+            ));
+        }
+
+        // ── Pago contra entrega: flujo normal ───────────────────────────
+        return redirect()->route('orders.index')->with('status', 'Pedido confirmado con éxito.');
     }
 
     // For Commerces to view and manage their orders
@@ -81,13 +108,13 @@ class OrderController extends Controller
         $commerce = auth()->user()->commerces()->first();
         if (!$commerce) return redirect()->route('commerce.dashboard');
 
-        $orders = $commerce->orders()->where('status', '!=', 'pending')->latest()->get();
+        $orders = $commerce->orders()->where('status', '!=', 'pending')->with('items.product', 'user')->latest()->get();
         return view('orders.commerce', compact('orders'));
     }
 
     public function updateStatus(Request $request, Order $order)
     {
         $order->update(['status' => $request->status]);
-        return redirect()->back()->with('status', 'Estado del pedido actualizado.');
+        return redirect()->route('commerce.orders')->with('status', 'Pedido actualizado correctamente.');
     }
 }

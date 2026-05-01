@@ -3,12 +3,12 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>PedidosYa — Pide lo que quieras</title>
+    <title>DroneDrop — Pide lo que quieras</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Inter', sans-serif; background: #fff7f0; color: #1a1a1a; }
+        body { font-family: 'Inter', sans-serif; background: #fff7f0; color: #1a1a1a; scroll-behavior: smooth; }
 
         /* NAV */
         nav {
@@ -18,10 +18,22 @@
             border-bottom: 2px solid #ff6b00;
             box-shadow: 0 1px 8px rgba(0,0,0,.06);
             position: sticky; top: 0; z-index: 100;
+            flex-wrap: wrap; gap: .75rem;
         }
-        .nav-brand { font-size: 1.5rem; font-weight: 800; color: #ff6b00; letter-spacing: -0.5px; }
+        .nav-brand { font-size: 1.5rem; font-weight: 800; color: #ff6b00; letter-spacing: -0.5px; text-decoration: none; }
         .nav-brand span { color: #1a1a1a; }
-        .nav-links { display: flex; gap: 1rem; }
+
+        .nav-sections {
+            display: flex; align-items: center; gap: .25rem;
+        }
+        .nav-sections a {
+            padding: .45rem .95rem; border-radius: 8px;
+            font-weight: 600; font-size: .85rem; text-decoration: none;
+            color: #555; transition: all .2s;
+        }
+        .nav-sections a:hover { background: #fff0e0; color: #ff6b00; }
+
+        .nav-links { display: flex; gap: .75rem; align-items: center; }
         .nav-links a {
             padding: .5rem 1.2rem; border-radius: 8px;
             font-weight: 600; font-size: .9rem; text-decoration: none;
@@ -119,15 +131,157 @@
         .feature-card h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: .5rem; color: #1a1a1a; }
         .feature-card p { font-size: .9rem; color: #666; line-height: 1.6; }
 
+        /* DRONE CARD — Diferenciador */
+        .feature-card--drone {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            border: 2px solid #ff6b00;
+            color: white;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0 0 0 rgba(255,107,0,0);
+            animation: droneBorderPulse 3s ease-in-out infinite;
+        }
+        .feature-card--drone::before {
+            content: '';
+            position: absolute; inset: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(255,107,0,.15) 0%, transparent 65%);
+            pointer-events: none;
+        }
+        .feature-card--drone h3 { color: #fff; font-size: 1.1rem; display: flex; align-items: center; gap: .5rem; flex-wrap: wrap; }
+        .feature-card--drone p { color: #ccc; }
+        .feature-card--drone p strong { color: #ff9a40; }
+        .feature-card--drone:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 40px rgba(255,107,0,.35) !important;
+            border-color: #ff9a40;
+        }
+        .badge-new {
+            display: inline-block;
+            background: #ff6b00; color: white;
+            font-size: .65rem; font-weight: 800; letter-spacing: .05em;
+            padding: .2rem .55rem; border-radius: 50px;
+            vertical-align: middle;
+            animation: badgePop .5s ease;
+        }
+        @keyframes badgePop {
+            0% { transform: scale(0); opacity: 0; }
+            80% { transform: scale(1.15); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        @keyframes droneBorderPulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(255,107,0,0), 0 8px 30px rgba(255,107,0,.08); }
+            50% { box-shadow: 0 0 20px 4px rgba(255,107,0,.25), 0 8px 30px rgba(255,107,0,.2); }
+        }
+        .drone-pulse {
+            animation: droneHover 2s ease-in-out infinite;
+            display: inline-block;
+        }
+        @keyframes droneHover {
+            0%, 100% { transform: translateY(0px) rotate(-5deg); }
+            50% { transform: translateY(-6px) rotate(5deg); }
+        }
+
+        /* ABOUT US */
+        .about { background: linear-gradient(135deg, #fff7f0 0%, #ffe8d0 100%); padding: 5rem 2rem; }
+        .about-inner { max-width: 1100px; margin: 0 auto; }
+        .org-description {
+            max-width: 760px; margin: 0 auto 3rem;
+            background: white; border-radius: 20px; padding: 2.5rem;
+            border: 1px solid #ffe0c0; box-shadow: 0 8px 30px rgba(255,107,0,.08);
+            text-align: center;
+        }
+        .org-description p {
+            font-size: 1rem; color: #555; line-height: 1.8;
+        }
+        .org-description p + p { margin-top: 1rem; }
+        .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 1rem; }
+        .team-card {
+            background: white; border-radius: 20px; padding: 2.5rem 2rem;
+            border: 1px solid #ffe0c0; text-align: center;
+            box-shadow: 0 8px 30px rgba(255,107,0,.08);
+            transition: all .3s;
+        }
+        .team-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(255,107,0,.18); border-color: #ff6b00; }
+        .team-avatar {
+            width: 90px; height: 90px; border-radius: 50%;
+            background: linear-gradient(135deg, #ff6b00, #ff9a40);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 2.2rem; margin: 0 auto 1.2rem;
+            box-shadow: 0 6px 20px rgba(255,107,0,.3);
+        }
+        .team-card h3 { font-size: 1.15rem; font-weight: 800; color: #1a1a1a; margin-bottom: .4rem; }
+        .team-role {
+            display: inline-block;
+            background: #fff0e0; color: #ff6b00;
+            font-size: .78rem; font-weight: 700; letter-spacing: .04em;
+            padding: .3rem .9rem; border-radius: 50px; margin-bottom: .9rem;
+            border: 1px solid #ffd0a0;
+        }
+        .team-card p { font-size: .88rem; color: #777; line-height: 1.6; }
+        .unab-badge {
+            display: inline-flex; align-items: center; gap: .5rem;
+            background: white; border: 1px solid #ffe0c0;
+            border-radius: 50px; padding: .5rem 1.2rem;
+            font-size: .82rem; font-weight: 600; color: #555;
+            margin-bottom: 2.5rem; box-shadow: 0 2px 8px rgba(0,0,0,.06);
+        }
+
+        /* CONTACT */
+        .contact { background: white; padding: 5rem 2rem; }
+        .contact-inner { max-width: 900px; margin: 0 auto; }
+        .contact-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem; margin-top: 1rem;
+        }
+        .contact-card {
+            background: #fff7f0; border-radius: 18px; padding: 2rem;
+            border: 1px solid #ffe0c0; transition: all .25s; text-align: center;
+        }
+        .contact-card:hover { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(255,107,0,.12); border-color: #ff6b00; }
+        .contact-icon {
+            width: 64px; height: 64px; border-radius: 16px;
+            background: linear-gradient(135deg, #ff6b00, #ff9a40);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.8rem; margin: 0 auto 1.2rem;
+            box-shadow: 0 4px 16px rgba(255,107,0,.3);
+        }
+        .contact-card h3 { font-size: 1rem; font-weight: 800; color: #1a1a1a; margin-bottom: .6rem; }
+        .contact-card a {
+            display: block; color: #ff6b00; font-weight: 600;
+            font-size: .9rem; text-decoration: none; transition: color .2s;
+            margin-bottom: .3rem;
+        }
+        .contact-card a:hover { color: #e55a00; text-decoration: underline; }
+        .contact-card span { font-size: .85rem; color: #888; }
+        .contact-cta {
+            margin-top: 3rem; text-align: center;
+            background: linear-gradient(135deg, #ff6b00, #ff9a40);
+            border-radius: 20px; padding: 3rem 2rem;
+            color: white;
+        }
+        .contact-cta h3 { font-size: 1.6rem; font-weight: 800; margin-bottom: .75rem; }
+        .contact-cta p { font-size: 1rem; opacity: .9; }
+
         /* FOOTER */
-        footer { padding: 2rem; text-align: center; color: #999; font-size: .85rem; background: white; border-top: 1px solid #f0e0d0; }
+        footer { padding: 2rem; text-align: center; color: #999; font-size: .85rem; background: #1a1a1a; border-top: 1px solid #333; }
         footer strong { color: #ff6b00; }
+        footer p { margin-bottom: .4rem; }
+        footer a { color: #ff9a40; text-decoration: none; }
+        footer a:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
 
-    <nav>
-        <div class="nav-brand">Pedidos<span>Ya</span></div>
+    <nav id="inicio">
+        <a href="#inicio" class="nav-brand">Drone<span>Drop</span></a>
+
+        <div class="nav-sections">
+            <a href="#inicio">Inicio</a>
+            <a href="#funcionalidades">Funcionalidades</a>
+            <a href="#nosotros">Nosotros</a>
+            <a href="#contacto">Contáctanos</a>
+        </div>
+
         @if (Route::has('login'))
             <div class="nav-links">
                 @auth
@@ -195,7 +349,7 @@
     </section>
 
     <!-- FEATURES -->
-    <section class="features">
+    <section class="features" id="funcionalidades">
         <div class="features-inner">
             <div class="section-title">
                 <h2>Todo en un solo lugar</h2>
@@ -232,12 +386,126 @@
                     <h3>Seguro y confiable</h3>
                     <p>Registro por roles (cliente, comercio, repartidor) con autenticación segura y control de acceso.</p>
                 </div>
+
+                <!-- NUEVA FILA — diferenciador drone + 2 extras -->
+                <div class="feature-card feature-card--drone">
+                    <div class="feature-icon drone-pulse">🚁</div>
+                    <h3>Entregas con Dron <span class="badge-new">⚡ Diferenciador</span></h3>
+                    <p>Nuestra tecnología de entrega por dron reduce los tiempos a la mitad. Vuelos autónomos, rastreo en tiempo real y llegada directa a tu puerta. <strong>El futuro de los domicilios ya está aquí.</strong></p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔔</div>
+                    <h3>Notificaciones en tiempo real</h3>
+                    <p>Recibe alertas instantáneas en cada etapa de tu pedido: confirmación, preparación, despacho y entrega. Siempre informado, sin sorpresas.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⭐</div>
+                    <h3>Reseñas y calificaciones</h3>
+                    <p>Califica tu experiencia, deja reseñas de los comercios y ayuda a la comunidad a elegir las mejores opciones de Bucaramanga.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOBRE NOSOTROS -->
+    <section class="about" id="nosotros">
+        <div class="about-inner">
+            <div class="section-title">
+                <h2>Sobre Nosotros</h2>
+                <p>Conoce al equipo detrás de DroneDrop</p>
+            </div>
+            <div style="text-align:center;">
+                <span class="unab-badge">🎓 Estudiantes de Ingeniería de Sistemas — <strong>UNAB · Bucaramanga</strong></span>
+            </div>
+
+            <!-- Descripción de la organización -->
+            <div class="org-description">
+                <p>
+                    <strong>DroneDrop</strong> es una iniciativa académica nacida en las aulas de la
+                    <strong>Universidad Autónoma de Bucaramanga (UNAB)</strong>, desarrollada por estudiantes
+                    de <strong>Ingeniería de Sistemas</strong> con el objetivo de aplicar tecnología real
+                    para resolver necesidades cotidianas de nuestra ciudad.
+                </p>
+                <p>
+                    Nuestro propósito es democratizar el acceso a los domicilios locales, conectando de manera
+                    eficiente a clientes, comercios y repartidores en una sola plataforma digital. Creemos en el
+                    emprendimiento estudiantil, la innovación tecnológica y el impacto social positivo desde el campus.
+                </p>
+                <p>
+                    🏆 Somos un equipo comprometido con la excelencia técnica, el trabajo en equipo y el aprendizaje
+                    continuo. DroneDrop no es solo un proyecto universitario — <em>es nuestra visión del futuro del
+                    comercio local en Colombia</em>.
+                </p>
+            </div>
+
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-avatar">👨‍💻</div>
+                    <h3>Juan Jose Vargas</h3>
+                    <span class="team-role">⚙️ Desarrollador Full-Stack</span>
+                    <p>Apasionado por construir experiencias digitales. Responsable del backend y la lógica de negocio de DroneDrop.</p>
+                </div>
+                <div class="team-card">
+                    <div class="team-avatar">🎨</div>
+                    <h3>Juan Diego Chaparro</h3>
+                    <span class="team-role">🖌️ Diseño &amp; Frontend</span>
+                    <p>Encargado de la interfaz de usuario y la experiencia visual. Transforma ideas en interfaces limpias y modernas.</p>
+                </div>
+                <div class="team-card">
+                    <div class="team-avatar">🚀</div>
+                    <h3>Santiago Amado</h3>
+                    <span class="team-role">📦 Logística &amp; Operaciones</span>
+                    <p>Responsable del módulo de repartidores y la lógica de domicilios. Garantiza que cada pedido llegue a tiempo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTÁCTANOS -->
+    <section class="contact" id="contacto">
+        <div class="contact-inner">
+            <div class="section-title">
+                <h2>Contáctanos</h2>
+                <p>Estamos disponibles para resolver tus dudas o escuchar tus ideas</p>
+            </div>
+
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <div class="contact-icon">📞</div>
+                    <h3>Teléfono / WhatsApp</h3>
+                    <a href="tel:+573167232440">+57 316 723 2440</a>
+                    <span>Lun – Vie · 8 am – 6 pm</span>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">✉️</div>
+                    <h3>Correos del equipo</h3>
+                    <a href="mailto:jvargas156@unab.edu.co">jvargas156@unab.edu.co</a>
+                    <a href="mailto:jnino195@unab.edu.co">jnino195@unab.edu.co</a>
+                    <a href="mailto:jchaparro167@unab.edu.co">jchaparro167@unab.edu.co</a>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">📍</div>
+                    <h3>Ubicación</h3>
+                    <a href="https://maps.google.com/?q=UNAB+Bucaramanga" target="_blank" rel="noopener">UNAB · Bucaramanga</a>
+                    <span>Santander, Colombia</span>
+                </div>
+            </div>
+
+            <div class="contact-cta">
+                <h3>¿Tienes un comercio o quieres ser repartidor?</h3>
+                <p>Regístrate gratis y empieza a recibir pedidos en minutos. ¡La plataforma más ágil de Bucaramanga te espera!</p>
             </div>
         </div>
     </section>
 
     <footer>
-        <p>© {{ date('Y') }} <strong>PedidosYa</strong> · Bucaramanga, Colombia · Todos los derechos reservados.</p>
+        <p>© {{ date('Y') }} <strong>DroneDrop</strong> · Bucaramanga, Colombia · Todos los derechos reservados.</p>
+        <p>
+            <a href="mailto:jvargas156@unab.edu.co">jvargas156@unab.edu.co</a> ·
+            <a href="mailto:jnino195@unab.edu.co">jnino195@unab.edu.co</a> ·
+            <a href="mailto:jchaparro167@unab.edu.co">jchaparro167@unab.edu.co</a>
+        </p>
+        <p style="margin-top:.4rem;">📞 <a href="tel:+573167232440">+57 316 723 2440</a> · 🎓 Estudiantes de Ingeniería de Sistemas — UNAB</p>
     </footer>
 
 </body>

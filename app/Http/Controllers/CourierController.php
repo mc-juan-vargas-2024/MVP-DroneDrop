@@ -38,7 +38,7 @@ class CourierController extends Controller
         $delivery->update(['status' => 'delivered']);
         $delivery->order->update(['status' => 'delivered']);
 
-        return redirect()->back()->with('status', 'Pedido entregado exitosamente.');
+        return redirect()->route('courier.available')->with('status', '¡Entrega confirmada exitosamente! ✅');
     }
 
     public function myDeliveries()

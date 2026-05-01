@@ -75,12 +75,17 @@
                                     <p class="text-xs text-gray-500 mt-1">El costo se sumará a tu pedido.</p>
                                 </div>
                                 <div>
-                                    <x-input-label for="payment_method" :value="__('Método de Pago (PayU)')" class="mb-1" />
-                                    <select name="payment_method" class="block w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm">
-                                        <option value="contra_entrega">Pago Contra Entrega</option>
-                                        <option value="tarjeta_credito">Tarjeta de Crédito</option>
-                                        <option value="tarjeta_debito">Tarjeta de Débito (PSE)</option>
+                                    <x-input-label for="payment_method" :value="__('Método de Pago')" class="mb-1" />
+                                    <select name="payment_method" id="payment_method"
+                                        onchange="togglePayuNote(this.value)"
+                                        class="block w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm">
+                                        <option value="contra_entrega">💵 Pago Contra Entrega</option>
+                                        <option value="tarjeta_credito">💳 Tarjeta de Crédito (PayU)</option>
+                                        <option value="tarjeta_debito">🏦 PSE / Débito (PayU)</option>
                                     </select>
+                                    <p id="payu-note" class="text-xs text-orange-600 mt-1 hidden font-semibold">
+                                        🔒 Serás redirigido al portal seguro de PayU para pagar.
+                                    </p>
                                 </div>
                             </div>
                             
@@ -98,4 +103,12 @@
             @endif
         </div>
     </div>
+
+    <script>
+        function togglePayuNote(val) {
+            const note = document.getElementById('payu-note');
+            note.classList.toggle('hidden', val === 'contra_entrega');
+        }
+    </script>
+
 </x-app-layout>
