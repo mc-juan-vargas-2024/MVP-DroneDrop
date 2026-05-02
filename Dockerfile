@@ -1,16 +1,17 @@
-FROM php:8.2-fpm-alpine
+FROM php:8.2-fpm-bullseye
 
-# Dependencias del sistema (agregamos postgresql-dev para libpq)
-RUN apk add --no-cache \
+# Dependencias del sistema
+RUN apt-get update && apt-get install -y \
     nginx \
     curl \
     zip \
     unzip \
     nodejs \
     npm \
-    postgresql-dev
+    libpq-dev \
+    && rm -rf /var/lib/apt/lists/*
 
-# Extensiones PHP (PostgreSQL)
+# Extensiones PHP
 RUN docker-php-ext-install pdo pdo_pgsql opcache
 
 # Composer
@@ -20,12 +21,12 @@ WORKDIR /var/www
 
 COPY . .
 
-# Dependencias PHP
 RUN composer install --no-dev --optimize-autoloader
-
-# Compilar assets con Vite
 RUN npm install && npm run build
 
-# Permisos
 RUN chown -R www-data:www-data /var/www \
-    && chmod -R 775 storage b
+    && chmod -R 775 storage bootstrap/cache
+
+EXPOSE 8080
+
+CMD ["/bin/sh", "/var/www/docker/start.sh"]
