@@ -55,7 +55,7 @@
                 ¿Ya tienes cuenta?
             </a>
 
-            <x-primary-button class="ms-4">
+            <x-primary-button class="ms-4 focus:ring-orange-500 active:bg-orange-600 hover:bg-orange-700 bg-orange-500">
                 Registrarse
             </x-primary-button>
         </div>
