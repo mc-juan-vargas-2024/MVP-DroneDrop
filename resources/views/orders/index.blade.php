@@ -69,7 +69,6 @@
     </div>
 </x-app-layout>
 
-@push('scripts')
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         const mapEl = document.getElementById('order-map');
@@ -96,4 +95,3 @@
         @endif
     });
 </script>
-@endpush
