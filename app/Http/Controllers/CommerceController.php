@@ -44,13 +44,15 @@ class CommerceController extends Controller
         $request->validate([
             'name' => 'required|string',
             'address' => 'required|string',
+            'latitude' => 'nullable|numeric|between:-90,90',
+            'longitude' => 'nullable|numeric|between:-180,180',
             'opening_time' => 'nullable|date_format:H:i',
             'closing_time' => 'nullable|date_format:H:i',
         ]);
 
-        $data = $request->only('name', 'address', 'opening_time', 'closing_time');
+        $data = $request->only('name', 'address', 'opening_time', 'closing_time', 'latitude', 'longitude');
 
-        if ($request->address !== $commerce->address) {
+        if (!$request->filled('latitude') || !$request->filled('longitude')) {
             $coords = $this->geocode($request->address);
             if ($coords) {
                 $data['latitude'] = $coords['lat'];
@@ -60,7 +62,15 @@ class CommerceController extends Controller
 
         $commerce->update($data);
 
-        return redirect()->route('commerce.dashboard')->with('status', 'Profile updated!');
+        $hasCoords = $commerce->latitude && $commerce->longitude;
+        $message = $hasCoords
+            ? 'Perfil actualizado con éxito. Ubicación geocodificada correctamente.'
+            : 'Perfil actualizado, pero no se pudo geocodificar la dirección. Podés ingresar las coordenadas manualmente.';
+
+        return redirect()->route('commerce.dashboard')->with(
+            $hasCoords ? 'status' : 'error',
+            $message
+        );
     }
 
     private function geocode(string $address): ?array

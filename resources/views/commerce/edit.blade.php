@@ -37,6 +37,23 @@
                         </div>
                     </div>
 
+                    <div class="mb-4 p-4 bg-gray-50 rounded-lg border border-gray-200">
+                        <p class="text-sm text-gray-600 mb-2 font-medium">📍 Coordenadas (opcional)</p>
+                        <p class="text-xs text-gray-500 mb-3">Si la geocodificación automática falla, podés ingresarlas manualmente.</p>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <x-input-label for="latitude" :value="__('Latitud')" />
+                                <x-text-input id="latitude" name="latitude" type="text" step="any" class="mt-1 block w-full" :value="old('latitude', $commerce->latitude)" placeholder="ej: 7.1186" />
+                                <x-input-error class="mt-2" :messages="$errors->get('latitude')" />
+                            </div>
+                            <div>
+                                <x-input-label for="longitude" :value="__('Longitud')" />
+                                <x-text-input id="longitude" name="longitude" type="text" step="any" class="mt-1 block w-full" :value="old('longitude', $commerce->longitude)" placeholder="ej: -73.1198" />
+                                <x-input-error class="mt-2" :messages="$errors->get('longitude')" />
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="flex items-center gap-4 mt-6">
                         <x-primary-button>{{ __('Guardar Cambios') }}</x-primary-button>
                     </div>
