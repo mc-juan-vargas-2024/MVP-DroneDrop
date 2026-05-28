@@ -9,7 +9,10 @@ class CourierController extends Controller
 {
     public function available()
     {
-        $deliveries = Delivery::where('status', 'pending')->with('order.commerce', 'order.user')->get();
+        $deliveries = Delivery::where('status', 'pending')
+    ->whereHas('order', fn($q) => $q->where('status', 'ready'))
+    ->with('order.commerce', 'order.user')
+    ->get();
         return view('courier.available', compact('deliveries'));
     }
 

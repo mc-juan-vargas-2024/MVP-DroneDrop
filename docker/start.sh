@@ -5,14 +5,14 @@ mkdir -p /var/www/storage/framework/sessions
 mkdir -p /var/www/storage/framework/views
 mkdir -p /var/www/storage/framework/cache
 
-# Limpiar caché primero
+# Limpiar caché (nunca cachear config en producción con Render,
+# porque las env vars se inyectan en runtime, no en build time)
 php artisan cache:clear
 php artisan config:clear
+php artisan route:clear
 php artisan view:clear
 
-# Optimizar Laravel
-php artisan config:cache
-php artisan route:cache
+# Solo cachear vistas (seguro, no depende de env vars en runtime)
 php artisan view:cache
 php artisan storage:link
 

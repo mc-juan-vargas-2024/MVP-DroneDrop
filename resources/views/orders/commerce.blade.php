@@ -28,6 +28,14 @@
                         <p class="font-semibold text-gray-700">👤 {{ $order->user->name }}</p>
                     </div>
                     <div class="text-center">
+                        <span class="text-xs text-gray-400 font-medium">Dirección entrega</span>
+                        <p class="font-semibold text-gray-700">📍 {{ $order->delivery_address ?? $order->address ?? 'No especificada' }}</p>
+                    </div>
+                    <div class="text-center">
+                        <span class="text-xs text-gray-400 font-medium">Dirección comercio</span>
+                        <p class="font-semibold text-gray-700">🏪 {{ $order->commerce->address ?? auth()->user()->address ?? 'No especificada' }}</p>
+                    </div>
+                    <div class="text-center">
                         <span class="text-xs text-gray-400 font-medium">Total</span>
                         <p class="font-bold text-orange-500 text-lg">${{ number_format($order->total_amount, 0, ',', '.') }}</p>
                     </div>
@@ -78,7 +86,19 @@
                 </div>
                 @elseif($order->status === 'in_process')
                 <div class="px-6 py-4 border-t border-orange-100 bg-orange-50 flex justify-end">
-                    <span class="text-orange-600 font-semibold text-sm">🛵 En camino con el repartidor...</span>
+                    <form action="{{ route('commerce.orders.status', $order->id) }}" method="POST">
+                        @csrf
+                        @method('PUT')
+                        <input type="hidden" name="status" value="ready">
+                        <button type="submit"
+                            class="bg-green-500 hover:bg-green-600 text-white font-bold px-6 py-2.5 rounded-xl transition-colors shadow-md flex items-center gap-2">
+                            🍽️ Marcar como Listo
+                        </button>
+                    </form>
+                </div>
+                @elseif($order->status === 'ready')
+                <div class="px-6 py-4 border-t border-green-100 bg-green-50 flex justify-end">
+                    <span class="text-green-600 font-semibold text-sm">✅ Listo — esperando repartidor...</span>
                 </div>
                 @elseif($order->status === 'delivered')
                 <div class="px-6 py-4 border-t border-green-100 bg-green-50 flex justify-end">

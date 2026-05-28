@@ -25,8 +25,23 @@ class OrderController extends Controller
         return view('orders.cart', compact('orders'));
     }
 
+    /**
+     * Verifica si el usuario tiene un pedido activo (confirmado pero no entregado).
+     */
+    private function hasActiveOrder(): bool
+{
+    return auth()->user()->orders()
+        ->whereIn('status', ['confirmed', 'in_transit', 'accepted', 'in_process', 'ready'])
+        ->exists();
+}
+
     public function addToCart(Request $request, Product $product)
     {
+        // Bloquear si el usuario tiene un pedido activo sin entregar
+        if ($this->hasActiveOrder()) {
+            return redirect()->back()->with('error', 'No puedes agregar productos mientras tengas un pedido en curso. Espera a que tu pedido actual sea entregado.');
+        }
+
         $order = auth()->user()->orders()->where('status', 'pending')->where('commerce_id', $product->commerce_id)->first();
         
         if (!$order) {
@@ -58,6 +73,11 @@ class OrderController extends Controller
     {
         if ($order->user_id !== auth()->id() || $order->status !== 'pending') {
             abort(403);
+        }
+
+        // Bloquear checkout si ya tiene un pedido activo (confirmado pero no entregado)
+        if ($this->hasActiveOrder()) {
+            return redirect()->route('orders.index')->with('error', 'No puedes confirmar un nuevo pedido mientras tengas uno en curso. Espera a que tu pedido actual sea entregado.');
         }
 
         $deliveryCost  = (float) $request->input('delivery_cost', 20.00);
