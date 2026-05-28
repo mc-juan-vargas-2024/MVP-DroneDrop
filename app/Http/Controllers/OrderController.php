@@ -26,11 +26,11 @@ class OrderController extends Controller
      * Verifica si el usuario tiene un pedido activo (confirmado pero no entregado).
      */
     private function hasActiveOrder(): bool
-    {
-        return auth()->user()->orders()
-            ->whereIn('status', ['confirmed', 'in_transit', 'accepted'])
-            ->exists();
-    }
+{
+    return auth()->user()->orders()
+        ->whereIn('status', ['confirmed', 'in_transit', 'accepted', 'in_process', 'ready'])
+        ->exists();
+}
 
     public function addToCart(Request $request, Product $product)
     {

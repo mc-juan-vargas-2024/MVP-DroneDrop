@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class CommerceController extends Controller
 {
+    public function updateStatus(Request $request, Order $order)
+{
+    $order->update(['status' => $request->status]);
+    return redirect()->route('commerce.orders')->with('status', 'Pedido actualizado correctamente.');
+}
     public function index(Request $request)
     {
         $query = Commerce::query();
