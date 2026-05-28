@@ -82,6 +82,7 @@
             <input type="hidden" name="taxReturnBase"   value="0">
             <input type="hidden" name="currency"        value="{{ $currency }}">
             <input type="hidden" name="signature"       value="{{ $signature }}">
+            <input type="hidden" name="algorithmSignature" value="{{ $algorithmSignature ?? 'MD5' }}">
             <input type="hidden" name="test"            value="{{ $test }}">
             <input type="hidden" name="buyerEmail"      value="{{ $buyerEmail }}">
             <input type="hidden" name="confirmationUrl" value="{{ url('/payu/webhook') }}">

@@ -12,21 +12,21 @@ class PaymentController extends Controller
      */
     public function preparePayment(Request $request)
     {
-        $apiKey      = env('PAYU_API_KEY', '4Vj8eK4rloUd272L48hsrarnUA');
-        $merchantId  = env('PAYU_MERCHANT_ID', '508029');
-        $accountId   = env('PAYU_ACCOUNT_ID', '512321');
-        $test        = env('PAYU_TEST', '1');
-        $payuUrl     = env('PAYU_URL', 'https://sandbox.checkout.payulatam.com/ppp-web-gateway-payu/');
+        $apiKey      = trim(env('PAYU_API_KEY', '4Vj8eK4rloUd272L48hsrarnUA'));
+        $merchantId  = trim(env('PAYU_MERCHANT_ID', '508029'));
+        $accountId   = trim(env('PAYU_ACCOUNT_ID', '512321'));
+        $test        = trim(env('PAYU_TEST', '1'));
+        $payuUrl     = trim(env('PAYU_URL', 'https://sandbox.checkout.payulatam.com/ppp-web-gateway-payu/'));
 
         $referenceCode = 'Pedido-' . time();
-        $rawAmount     = 20000;
-        $amount        = number_format((float) $rawAmount, 1, '.', '');
+        $amount        = '20000';
         $currency      = 'COP';
         $description   = 'Pedido de prueba DroneDrop';
         $buyerEmail    = 'testbuyer@dropdrone.com';
 
         // Firma: md5(apiKey~merchantId~referenceCode~amount~currency)
         $signature = md5("{$apiKey}~{$merchantId}~{$referenceCode}~{$amount}~{$currency}");
+        $algorithmSignature = 'MD5';
 
         return view('payu.checkout', compact(
             'merchantId',
@@ -36,6 +36,7 @@ class PaymentController extends Controller
             'amount',
             'currency',
             'signature',
+            'algorithmSignature',
             'test',
             'buyerEmail',
             'payuUrl'

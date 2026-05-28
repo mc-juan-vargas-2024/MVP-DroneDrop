@@ -77,25 +77,26 @@ class OrderController extends Controller
 
         // ── Si el pago es online, redirigir a PayU ──────────────────────
         if (in_array($paymentMethod, ['tarjeta_credito', 'tarjeta_debito'])) {
-            $apiKey        = env('PAYU_API_KEY', '4Vj8eK4rloUd272L48hsrarnUA');
-            $merchantId    = env('PAYU_MERCHANT_ID', '508029');
-            $accountId     = env('PAYU_ACCOUNT_ID', '512321');
-            $test          = env('PAYU_TEST', '1');
-            $payuUrl       = env('PAYU_URL', 'https://sandbox.checkout.payulatam.com/ppp-web-gateway-payu/');
+            $apiKey        = trim(env('PAYU_API_KEY', '4Vj8eK4rloUd272L48hsrarnUA'));
+            $merchantId    = trim(env('PAYU_MERCHANT_ID', '508029'));
+            $accountId     = trim(env('PAYU_ACCOUNT_ID', '512321'));
+            $test          = trim(env('PAYU_TEST', '1'));
+            $payuUrl       = trim(env('PAYU_URL', 'https://sandbox.checkout.payulatam.com/ppp-web-gateway-payu/'));
 
             $referenceCode = 'Pedido-' . $order->id . '-' . time();
-            $rawAmount     = $order->total_amount + $deliveryCost;
-            $amount        = number_format((float) $rawAmount, 1, '.', '');
+            // Para COP en PayU Sandbox es más seguro enviar el valor entero sin decimales
+            $amount        = (string) intval($order->total_amount + $deliveryCost);
             $currency      = 'COP';
             $description   = 'Pedido #' . $order->id . ' en DroneDrop';
             $buyerEmail    = auth()->user()->email;
 
             // Firma: md5(apiKey~merchantId~referenceCode~amount~currency)
             $signature = md5("{$apiKey}~{$merchantId}~{$referenceCode}~{$amount}~{$currency}");
+            $algorithmSignature = 'MD5';
 
             return view('payu.checkout', compact(
                 'merchantId', 'accountId', 'description', 'referenceCode',
-                'amount', 'currency', 'signature', 'test', 'buyerEmail', 'payuUrl'
+                'amount', 'currency', 'signature', 'algorithmSignature', 'test', 'buyerEmail', 'payuUrl'
             ));
         }
 
