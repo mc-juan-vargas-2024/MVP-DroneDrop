@@ -1,0 +1,166 @@
+{
+  "type": "excalidraw",
+  "version": 2,
+  "source": "https://excalidraw.com",
+  "elements": [
+    {"id": "b1_c", "type": "ellipse", "x": 1000, "y": 50, "width": 60, "height": 60, "strokeColor": "#000000", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "roughness": 0},
+    {"id": "b1_lh", "type": "line", "x": 980, "y": 80, "width": 20, "height": 0, "strokeColor": "#000000", "strokeWidth": 2, "roughness": 0, "points": [[0,0], [20,0]]},
+    {"id": "b1_lv", "type": "line", "x": 980, "y": 60, "width": 0, "height": 40, "strokeColor": "#000000", "strokeWidth": 2, "roughness": 0, "points": [[0,0], [0,40]]},
+    {"id": "b1_t", "type": "text", "x": 960, "y": 120, "width": 140, "height": 40, "text": "Sistema\nDroneDrop", "fontSize": 14, "fontFamily": 3, "textAlign": "center", "strokeColor": "#000000"},
+
+    {"id": "b2_c", "type": "ellipse", "x": 1000, "y": 200, "width": 60, "height": 60, "strokeColor": "#000000", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "roughness": 0},
+    {"id": "b2_lh", "type": "line", "x": 980, "y": 230, "width": 20, "height": 0, "strokeColor": "#000000", "strokeWidth": 2, "roughness": 0, "points": [[0,0], [20,0]]},
+    {"id": "b2_lv", "type": "line", "x": 980, "y": 210, "width": 0, "height": 40, "strokeColor": "#000000", "strokeWidth": 2, "roughness": 0, "points": [[0,0], [0,40]]},
+    {"id": "b2_t", "type": "text", "x": 960, "y": 270, "width": 140, "height": 40, "text": "Portal\nprincipal", "fontSize": 14, "fontFamily": 3, "textAlign": "center", "strokeColor": "#000000"},
+
+    {"id": "b3_c", "type": "ellipse", "x": 300, "y": 350, "width": 60, "height": 60, "strokeColor": "#000000", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "roughness": 0},
+    {"id": "b3_lh", "type": "line", "x": 280, "y": 380, "width": 20, "height": 0, "strokeColor": "#000000", "strokeWidth": 2, "roughness": 0, "points": [[0,0], [20,0]]},
+    {"id": "b3_lv", "type": "line", "x": 280, "y": 360, "width": 0, "height": 40, "strokeColor": "#000000", "strokeWidth": 2, "roughness": 0, "points": [[0,0], [0,40]]},
+    {"id": "b3_t", "type": "text", "x": 260, "y": 420, "width": 140, "height": 40, "text": "Registrarse en\nel sistema", "fontSize": 14, "fontFamily": 3, "textAlign": "center", "strokeColor": "#000000"},
+
+    {"id": "b4_c", "type": "ellipse", "x": 1200, "y": 350, "width": 60, "height": 60, "strokeColor": "#000000", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "roughness": 0},
+    {"id": "b4_lh", "type": "line", "x": 1180, "y": 380, "width": 20, "height": 0, "strokeColor": "#000000", "strokeWidth": 2, "roughness": 0, "points": [[0,0], [20,0]]},
+    {"id": "b4_lv", "type": "line", "x": 1180, "y": 360, "width": 0, "height": 40, "strokeColor": "#000000", "strokeWidth": 2, "roughness": 0, "points": [[0,0], [0,40]]},
+    {"id": "b4_t", "type": "text", "x": 1160, "y": 420, "width": 140, "height": 40, "text": "Ingreso al\nsistema", "fontSize": 14, "fontFamily": 3, "textAlign": "center", "strokeColor": "#000000"},
+
+    {"id": "b5_c", "type": "ellipse", "x": 600, "y": 500, "width": 60, "height": 60, "strokeColor": "#000000", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "roughness": 0},
+    {"id": "b5_lh", "type": "line", "x": 580, "y": 530, "width": 20, "height": 0, "strokeColor": "#000000", "strokeWidth": 2, "roughness": 0, "points": [[0,0], [20,0]]},
+    {"id": "b5_lv", "type": "line", "x": 580, "y": 510, "width": 0, "height": 40, "strokeColor": "#000000", "strokeWidth": 2, "roughness": 0, "points": [[0,0], [0,40]]},
+    {"id": "b5_t", "type": "text", "x": 560, "y": 570, "width": 140, "height": 40, "text": "Interfaz\nadministrador", "fontSize": 14, "fontFamily": 3, "textAlign": "center", "strokeColor": "#000000"},
+
+    {"id": "b6_c", "type": "ellipse", "x": 900, "y": 500, "width": 60, "height": 60, "strokeColor": "#000000", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "roughness": 0},
+    {"id": "b6_lh", "type": "line", "x": 880, "y": 530, "width": 20, "height": 0, "strokeColor": "#000000", "strokeWidth": 2, "roughness": 0, "points": [[0,0], [20,0]]},
+    {"id": "b6_lv", "type": "line", "x": 880, "y": 510, "width": 0, "height": 40, "strokeColor": "#000000", "strokeWidth": 2, "roughness": 0, "points": [[0,0], [0,40]]},
+    {"id": "b6_t", "type": "text", "x": 860, "y": 570, "width": 140, "height": 40, "text": "Interfaz\ncomercio", "fontSize": 14, "fontFamily": 3, "textAlign": "center", "strokeColor": "#000000"},
+
+    {"id": "b7_c", "type": "ellipse", "x": 1500, "y": 500, "width": 60, "height": 60, "strokeColor": "#000000", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "roughness": 0},
+    {"id": "b7_lh", "type": "line", "x": 1480, "y": 530, "width": 20, "height": 0, "strokeColor": "#000000", "strokeWidth": 2, "roughness": 0, "points": [[0,0], [20,0]]},
+    {"id": "b7_lv", "type": "line", "x": 1480, "y": 510, "width": 0, "height": 40, "strokeColor": "#000000", "strokeWidth": 2, "roughness": 0, "points": [[0,0], [0,40]]},
+    {"id": "b7_t", "type": "text", "x": 1460, "y": 570, "width": 140, "height": 40, "text": "Interfaz\ncliente", "fontSize": 14, "fontFamily": 3, "textAlign": "center", "strokeColor": "#000000"},
+
+    {"id": "b8_c", "type": "ellipse", "x": 2100, "y": 500, "width": 60, "height": 60, "strokeColor": "#000000", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "roughness": 0},
+    {"id": "b8_lh", "type": "line", "x": 2080, "y": 530, "width": 20, "height": 0, "strokeColor": "#000000", "strokeWidth": 2, "roughness": 0, "points": [[0,0], [20,0]]},
+    {"id": "b8_lv", "type": "line", "x": 2080, "y": 510, "width": 0, "height": 40, "strokeColor": "#000000", "strokeWidth": 2, "roughness": 0, "points": [[0,0], [0,40]]},
+    {"id": "b8_t", "type": "text", "x": 2060, "y": 570, "width": 140, "height": 40, "text": "Interfaz\ncourier", "fontSize": 14, "fontFamily": 3, "textAlign": "center", "strokeColor": "#000000"},
+
+    {"id": "b9_c", "type": "ellipse", "x": 1100, "y": 650, "width": 60, "height": 60, "strokeColor": "#000000", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "roughness": 0},
+    {"id": "b9_lh", "type": "line", "x": 1080, "y": 680, "width": 20, "height": 0, "strokeColor": "#000000", "strokeWidth": 2, "roughness": 0, "points": [[0,0], [20,0]]},
+    {"id": "b9_lv", "type": "line", "x": 1080, "y": 660, "width": 0, "height": 40, "strokeColor": "#000000", "strokeWidth": 2, "roughness": 0, "points": [[0,0], [0,40]]},
+    {"id": "b9_t", "type": "text", "x": 1060, "y": 720, "width": 140, "height": 40, "text": "Homepage", "fontSize": 14, "fontFamily": 3, "textAlign": "center", "strokeColor": "#000000"},
+
+    {"id": "b10_c", "type": "ellipse", "x": 1300, "y": 650, "width": 60, "height": 60, "strokeColor": "#000000", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "roughness": 0},
+    {"id": "b10_lh", "type": "line", "x": 1280, "y": 680, "width": 20, "height": 0, "strokeColor": "#000000", "strokeWidth": 2, "roughness": 0, "points": [[0,0], [20,0]]},
+    {"id": "b10_lv", "type": "line", "x": 1280, "y": 660, "width": 0, "height": 40, "strokeColor": "#000000", "strokeWidth": 2, "roughness": 0, "points": [[0,0], [0,40]]},
+    {"id": "b10_t", "type": "text", "x": 1260, "y": 720, "width": 140, "height": 40, "text": "Vista Carrito", "fontSize": 14, "fontFamily": 3, "textAlign": "center", "strokeColor": "#000000"},
+
+    {"id": "b11_c", "type": "ellipse", "x": 1500, "y": 650, "width": 60, "height": 60, "strokeColor": "#000000", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "roughness": 0},
+    {"id": "b11_lh", "type": "line", "x": 1480, "y": 680, "width": 20, "height": 0, "strokeColor": "#000000", "strokeWidth": 2, "roughness": 0, "points": [[0,0], [20,0]]},
+    {"id": "b11_lv", "type": "line", "x": 1480, "y": 660, "width": 0, "height": 40, "strokeColor": "#000000", "strokeWidth": 2, "roughness": 0, "points": [[0,0], [0,40]]},
+    {"id": "b11_t", "type": "text", "x": 1460, "y": 720, "width": 140, "height": 40, "text": "Pasarela\nPagos", "fontSize": 14, "fontFamily": 3, "textAlign": "center", "strokeColor": "#000000"},
+
+    {"id": "b12_c", "type": "ellipse", "x": 1700, "y": 650, "width": 60, "height": 60, "strokeColor": "#000000", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "roughness": 0},
+    {"id": "b12_lh", "type": "line", "x": 1680, "y": 680, "width": 20, "height": 0, "strokeColor": "#000000", "strokeWidth": 2, "roughness": 0, "points": [[0,0], [20,0]]},
+    {"id": "b12_lv", "type": "line", "x": 1680, "y": 660, "width": 0, "height": 40, "strokeColor": "#000000", "strokeWidth": 2, "roughness": 0, "points": [[0,0], [0,40]]},
+    {"id": "b12_t", "type": "text", "x": 1660, "y": 720, "width": 140, "height": 40, "text": "Historial\nPedidos", "fontSize": 14, "fontFamily": 3, "textAlign": "center", "strokeColor": "#000000"},
+
+    {"id": "b13_c", "type": "ellipse", "x": 1900, "y": 650, "width": 60, "height": 60, "strokeColor": "#000000", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "roughness": 0},
+    {"id": "b13_lh", "type": "line", "x": 1880, "y": 680, "width": 20, "height": 0, "strokeColor": "#000000", "strokeWidth": 2, "roughness": 0, "points": [[0,0], [20,0]]},
+    {"id": "b13_lv", "type": "line", "x": 1880, "y": 660, "width": 0, "height": 40, "strokeColor": "#000000", "strokeWidth": 2, "roughness": 0, "points": [[0,0], [0,40]]},
+    {"id": "b13_t", "type": "text", "x": 1860, "y": 720, "width": 140, "height": 40, "text": "Cancelar\nPedido", "fontSize": 14, "fontFamily": 3, "textAlign": "center", "strokeColor": "#000000"},
+
+    {"id": "b14_c", "type": "ellipse", "x": 2100, "y": 650, "width": 60, "height": 60, "strokeColor": "#000000", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "roughness": 0},
+    {"id": "b14_lh", "type": "line", "x": 2080, "y": 680, "width": 20, "height": 0, "strokeColor": "#000000", "strokeWidth": 2, "roughness": 0, "points": [[0,0], [20,0]]},
+    {"id": "b14_lv", "type": "line", "x": 2080, "y": 660, "width": 0, "height": 40, "strokeColor": "#000000", "strokeWidth": 2, "roughness": 0, "points": [[0,0], [0,40]]},
+    {"id": "b14_t", "type": "text", "x": 2060, "y": 720, "width": 140, "height": 40, "text": "Entregas\nDisponibles", "fontSize": 14, "fontFamily": 3, "textAlign": "center", "strokeColor": "#000000"},
+
+    {"id": "c1_c", "type": "ellipse", "x": 300, "y": 500, "width": 60, "height": 60, "strokeColor": "#000000", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "roughness": 0},
+    {"id": "c1_a", "type": "line", "x": 335, "y": 495, "width": 10, "height": 10, "strokeColor": "#000000", "strokeWidth": 2, "roughness": 0, "points": [[0,0], [-10,5], [0,10]]},
+    {"id": "c1_t", "type": "text", "x": 260, "y": 570, "width": 140, "height": 40, "text": "Administración\nde usuarios", "fontSize": 14, "fontFamily": 3, "textAlign": "center", "strokeColor": "#000000"},
+
+    {"id": "c2_c", "type": "ellipse", "x": 500, "y": 650, "width": 60, "height": 60, "strokeColor": "#000000", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "roughness": 0},
+    {"id": "c2_a", "type": "line", "x": 535, "y": 645, "width": 10, "height": 10, "strokeColor": "#000000", "strokeWidth": 2, "roughness": 0, "points": [[0,0], [-10,5], [0,10]]},
+    {"id": "c2_t", "type": "text", "x": 460, "y": 720, "width": 140, "height": 40, "text": "Control de\nCategorías", "fontSize": 14, "fontFamily": 3, "textAlign": "center", "strokeColor": "#000000"},
+
+    {"id": "c3_c", "type": "ellipse", "x": 800, "y": 650, "width": 60, "height": 60, "strokeColor": "#000000", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "roughness": 0},
+    {"id": "c3_a", "type": "line", "x": 835, "y": 645, "width": 10, "height": 10, "strokeColor": "#000000", "strokeWidth": 2, "roughness": 0, "points": [[0,0], [-10,5], [0,10]]},
+    {"id": "c3_t", "type": "text", "x": 760, "y": 720, "width": 140, "height": 40, "text": "Control de\nProductos", "fontSize": 14, "fontFamily": 3, "textAlign": "center", "strokeColor": "#000000"},
+
+    {"id": "c4_c", "type": "ellipse", "x": 1300, "y": 800, "width": 60, "height": 60, "strokeColor": "#000000", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "roughness": 0},
+    {"id": "c4_a", "type": "line", "x": 1335, "y": 795, "width": 10, "height": 10, "strokeColor": "#000000", "strokeWidth": 2, "roughness": 0, "points": [[0,0], [-10,5], [0,10]]},
+    {"id": "c4_t", "type": "text", "x": 1260, "y": 870, "width": 140, "height": 40, "text": "Control de\nCarrito", "fontSize": 14, "fontFamily": 3, "textAlign": "center", "strokeColor": "#000000"},
+
+    {"id": "c5_c", "type": "ellipse", "x": 1700, "y": 800, "width": 60, "height": 60, "strokeColor": "#000000", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "roughness": 0},
+    {"id": "c5_a", "type": "line", "x": 1735, "y": 795, "width": 10, "height": 10, "strokeColor": "#000000", "strokeWidth": 2, "roughness": 0, "points": [[0,0], [-10,5], [0,10]]},
+    {"id": "c5_t", "type": "text", "x": 1660, "y": 870, "width": 140, "height": 40, "text": "Gestión de\nPedidos", "fontSize": 14, "fontFamily": 3, "textAlign": "center", "strokeColor": "#000000"},
+
+    {"id": "c6_c", "type": "ellipse", "x": 2100, "y": 800, "width": 60, "height": 60, "strokeColor": "#000000", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "roughness": 0},
+    {"id": "c6_a", "type": "line", "x": 2135, "y": 795, "width": 10, "height": 10, "strokeColor": "#000000", "strokeWidth": 2, "roughness": 0, "points": [[0,0], [-10,5], [0,10]]},
+    {"id": "c6_t", "type": "text", "x": 2060, "y": 870, "width": 140, "height": 40, "text": "Control de\nEntregas", "fontSize": 14, "fontFamily": 3, "textAlign": "center", "strokeColor": "#000000"},
+
+    {"id": "e1_c", "type": "ellipse", "x": 300, "y": 650, "width": 60, "height": 60, "strokeColor": "#000000", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "roughness": 0},
+    {"id": "e1_l", "type": "line", "x": 300, "y": 710, "width": 60, "height": 0, "strokeColor": "#000000", "strokeWidth": 2, "roughness": 0, "points": [[0,0], [60,0]]},
+    {"id": "e1_t", "type": "text", "x": 260, "y": 720, "width": 140, "height": 40, "text": "Usuarios", "fontSize": 14, "fontFamily": 3, "textAlign": "center", "strokeColor": "#000000"},
+
+    {"id": "e2_c", "type": "ellipse", "x": 500, "y": 800, "width": 60, "height": 60, "strokeColor": "#000000", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "roughness": 0},
+    {"id": "e2_l", "type": "line", "x": 500, "y": 860, "width": 60, "height": 0, "strokeColor": "#000000", "strokeWidth": 2, "roughness": 0, "points": [[0,0], [60,0]]},
+    {"id": "e2_t", "type": "text", "x": 460, "y": 870, "width": 140, "height": 40, "text": "Categorías", "fontSize": 14, "fontFamily": 3, "textAlign": "center", "strokeColor": "#000000"},
+
+    {"id": "e3_c", "type": "ellipse", "x": 800, "y": 800, "width": 60, "height": 60, "strokeColor": "#000000", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "roughness": 0},
+    {"id": "e3_l", "type": "line", "x": 800, "y": 860, "width": 60, "height": 0, "strokeColor": "#000000", "strokeWidth": 2, "roughness": 0, "points": [[0,0], [60,0]]},
+    {"id": "e3_t", "type": "text", "x": 760, "y": 870, "width": 140, "height": 40, "text": "Productos", "fontSize": 14, "fontFamily": 3, "textAlign": "center", "strokeColor": "#000000"},
+
+    {"id": "e6_c", "type": "ellipse", "x": 1500, "y": 800, "width": 60, "height": 60, "strokeColor": "#000000", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "roughness": 0},
+    {"id": "e6_l", "type": "line", "x": 1500, "y": 860, "width": 60, "height": 0, "strokeColor": "#000000", "strokeWidth": 2, "roughness": 0, "points": [[0,0], [60,0]]},
+    {"id": "e6_t", "type": "text", "x": 1460, "y": 870, "width": 140, "height": 40, "text": "Factura", "fontSize": 14, "fontFamily": 3, "textAlign": "center", "strokeColor": "#000000"},
+
+    {"id": "e4_c", "type": "ellipse", "x": 1300, "y": 950, "width": 60, "height": 60, "strokeColor": "#000000", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "roughness": 0},
+    {"id": "e4_l", "type": "line", "x": 1300, "y": 1010, "width": 60, "height": 0, "strokeColor": "#000000", "strokeWidth": 2, "roughness": 0, "points": [[0,0], [60,0]]},
+    {"id": "e4_t", "type": "text", "x": 1260, "y": 1020, "width": 140, "height": 40, "text": "Carrito", "fontSize": 14, "fontFamily": 3, "textAlign": "center", "strokeColor": "#000000"},
+
+    {"id": "e5_c", "type": "ellipse", "x": 1700, "y": 950, "width": 60, "height": 60, "strokeColor": "#000000", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "roughness": 0},
+    {"id": "e5_l", "type": "line", "x": 1700, "y": 1010, "width": 60, "height": 0, "strokeColor": "#000000", "strokeWidth": 2, "roughness": 0, "points": [[0,0], [60,0]]},
+    {"id": "e5_t", "type": "text", "x": 1660, "y": 1020, "width": 140, "height": 40, "text": "Pedidos", "fontSize": 14, "fontFamily": 3, "textAlign": "center", "strokeColor": "#000000"},
+
+    {"id": "e7_c", "type": "ellipse", "x": 2100, "y": 950, "width": 60, "height": 60, "strokeColor": "#000000", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "roughness": 0},
+    {"id": "e7_l", "type": "line", "x": 2100, "y": 1010, "width": 60, "height": 0, "strokeColor": "#000000", "strokeWidth": 2, "roughness": 0, "points": [[0,0], [60,0]]},
+    {"id": "e7_t", "type": "text", "x": 2060, "y": 1020, "width": 140, "height": 40, "text": "Entregas", "fontSize": 14, "fontFamily": 3, "textAlign": "center", "strokeColor": "#000000"},
+
+
+    {"id": "L1", "type": "line", "x": 1030, "y": 110, "width": 0, "height": 90, "strokeColor": "#000000", "strokeWidth": 1.5, "roughness": 0, "points": [[0,0], [0,90]]},
+    {"id": "L2", "type": "line", "x": 1030, "y": 260, "width": 700, "height": 90, "strokeColor": "#000000", "strokeWidth": 1.5, "roughness": 0, "points": [[0,0], [-700,90]]},
+    {"id": "L3", "type": "line", "x": 1030, "y": 260, "width": 200, "height": 90, "strokeColor": "#000000", "strokeWidth": 1.5, "roughness": 0, "points": [[0,0], [200,90]]},
+    {"id": "L4", "type": "line", "x": 330, "y": 410, "width": 0, "height": 90, "strokeColor": "#000000", "strokeWidth": 1.5, "roughness": 0, "points": [[0,0], [0,90]]},
+    {"id": "L5", "type": "line", "x": 330, "y": 560, "width": 0, "height": 90, "strokeColor": "#000000", "strokeWidth": 1.5, "roughness": 0, "points": [[0,0], [0,90]]},
+    {"id": "L6", "type": "line", "x": 1230, "y": 410, "width": 600, "height": 90, "strokeColor": "#000000", "strokeWidth": 1.5, "roughness": 0, "points": [[0,0], [-600,90]]},
+    {"id": "L7", "type": "line", "x": 1230, "y": 410, "width": 300, "height": 90, "strokeColor": "#000000", "strokeWidth": 1.5, "roughness": 0, "points": [[0,0], [-300,90]]},
+    {"id": "L8", "type": "line", "x": 1230, "y": 410, "width": 300, "height": 90, "strokeColor": "#000000", "strokeWidth": 1.5, "roughness": 0, "points": [[0,0], [300,90]]},
+    {"id": "L9", "type": "line", "x": 1230, "y": 410, "width": 900, "height": 90, "strokeColor": "#000000", "strokeWidth": 1.5, "roughness": 0, "points": [[0,0], [900,90]]},
+    {"id": "L10", "type": "line", "x": 630, "y": 560, "width": 100, "height": 90, "strokeColor": "#000000", "strokeWidth": 1.5, "roughness": 0, "points": [[0,0], [-100,90]]},
+    {"id": "L11", "type": "line", "x": 930, "y": 560, "width": 100, "height": 90, "strokeColor": "#000000", "strokeWidth": 1.5, "roughness": 0, "points": [[0,0], [-100,90]]},
+    {"id": "L12", "type": "line", "x": 1530, "y": 560, "width": 400, "height": 90, "strokeColor": "#000000", "strokeWidth": 1.5, "roughness": 0, "points": [[0,0], [-400,90]]},
+    {"id": "L13", "type": "line", "x": 1530, "y": 560, "width": 200, "height": 90, "strokeColor": "#000000", "strokeWidth": 1.5, "roughness": 0, "points": [[0,0], [-200,90]]},
+    {"id": "L14", "type": "line", "x": 1530, "y": 560, "width": 0, "height": 90, "strokeColor": "#000000", "strokeWidth": 1.5, "roughness": 0, "points": [[0,0], [0,90]]},
+    {"id": "L15", "type": "line", "x": 1530, "y": 560, "width": 200, "height": 90, "strokeColor": "#000000", "strokeWidth": 1.5, "roughness": 0, "points": [[0,0], [200,90]]},
+    {"id": "L16", "type": "line", "x": 1530, "y": 560, "width": 400, "height": 90, "strokeColor": "#000000", "strokeWidth": 1.5, "roughness": 0, "points": [[0,0], [400,90]]},
+    {"id": "L17", "type": "line", "x": 2130, "y": 560, "width": 0, "height": 90, "strokeColor": "#000000", "strokeWidth": 1.5, "roughness": 0, "points": [[0,0], [0,90]]},
+    {"id": "L18", "type": "line", "x": 1100, "y": 680, "width": 240, "height": 0, "strokeColor": "#000000", "strokeWidth": 1.5, "roughness": 0, "points": [[0,0], [-240,0]]},
+    {"id": "L19", "type": "line", "x": 1330, "y": 710, "width": 0, "height": 90, "strokeColor": "#000000", "strokeWidth": 1.5, "roughness": 0, "points": [[0,0], [0,90]]},
+    {"id": "L20", "type": "line", "x": 1530, "y": 710, "width": 0, "height": 90, "strokeColor": "#000000", "strokeWidth": 1.5, "roughness": 0, "points": [[0,0], [0,90]]},
+    {"id": "L21", "type": "line", "x": 2130, "y": 710, "width": 0, "height": 90, "strokeColor": "#000000", "strokeWidth": 1.5, "roughness": 0, "points": [[0,0], [0,90]]},
+    {"id": "L22", "type": "line", "x": 530, "y": 710, "width": 0, "height": 90, "strokeColor": "#000000", "strokeWidth": 1.5, "roughness": 0, "points": [[0,0], [0,90]]},
+    {"id": "L23", "type": "line", "x": 830, "y": 710, "width": 0, "height": 90, "strokeColor": "#000000", "strokeWidth": 1.5, "roughness": 0, "points": [[0,0], [0,90]]},
+    {"id": "L24", "type": "line", "x": 1330, "y": 860, "width": 0, "height": 90, "strokeColor": "#000000", "strokeWidth": 1.5, "roughness": 0, "points": [[0,0], [0,90]]},
+    {"id": "L25", "type": "line", "x": 1730, "y": 860, "width": 0, "height": 90, "strokeColor": "#000000", "strokeWidth": 1.5, "roughness": 0, "points": [[0,0], [0,90]]},
+    {"id": "L26", "type": "line", "x": 2130, "y": 860, "width": 0, "height": 90, "strokeColor": "#000000", "strokeWidth": 1.5, "roughness": 0, "points": [[0,0], [0,90]]},
+
+    {"id": "L27", "type": "line", "x": 630, "y": 560, "width": 1100, "height": 240, "strokeColor": "#000000", "strokeWidth": 1.5, "roughness": 0, "roundness": {"type": 3}, "points": [[0,0], [0,30], [1100,30], [1100,240]]},
+    {"id": "L28", "type": "line", "x": 930, "y": 560, "width": 800, "height": 240, "strokeColor": "#000000", "strokeWidth": 1.5, "roughness": 0, "roundness": {"type": 3}, "points": [[0,0], [0,50], [800,50], [800,240]]},
+    {"id": "L29", "type": "line", "x": 1530, "y": 710, "width": 200, "height": 90, "strokeColor": "#000000", "strokeWidth": 1.5, "roughness": 0, "roundness": {"type": 3}, "points": [[0,0], [0,40], [200,40], [200,90]]},
+    {"id": "L30", "type": "line", "x": 1730, "y": 710, "width": 0, "height": 90, "strokeColor": "#000000", "strokeWidth": 1.5, "roughness": 0, "points": [[0,0], [0,90]]},
+    {"id": "L31", "type": "line", "x": 1930, "y": 710, "width": 200, "height": 90, "strokeColor": "#000000", "strokeWidth": 1.5, "roughness": 0, "roundness": {"type": 3}, "points": [[0,0], [0,40], [-200,40], [-200,90]]},
+    {"id": "L32", "type": "line", "x": 2130, "y": 860, "width": 400, "height": 90, "strokeColor": "#000000", "strokeWidth": 1.5, "roughness": 0, "roundness": {"type": 3}, "points": [[0,0], [0,40], [-400,40], [-400,90]]}
+  ],
+  "appState": {
+    "viewBackgroundColor": "#ffffff"
+  }
+}

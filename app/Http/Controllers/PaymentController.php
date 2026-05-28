@@ -12,14 +12,15 @@ class PaymentController extends Controller
      */
     public function preparePayment(Request $request)
     {
-        $apiKey      = env('PAYU_API_KEY');
-        $merchantId  = env('PAYU_MERCHANT_ID');
-        $accountId   = env('PAYU_ACCOUNT_ID');
+        $apiKey      = env('PAYU_API_KEY', '4Vj8eK4rloUd272L48hsrarnUA');
+        $merchantId  = env('PAYU_MERCHANT_ID', '508029');
+        $accountId   = env('PAYU_ACCOUNT_ID', '512321');
         $test        = env('PAYU_TEST', '1');
-        $payuUrl     = env('PAYU_URL');
+        $payuUrl     = env('PAYU_URL', 'https://sandbox.checkout.payulatam.com/ppp-web-gateway-payu/');
 
         $referenceCode = 'Pedido-' . time();
-        $amount        = '20000';
+        $rawAmount     = 20000;
+        $amount        = number_format((float) $rawAmount, 1, '.', '');
         $currency      = 'COP';
         $description   = 'Pedido de prueba DroneDrop';
         $buyerEmail    = 'testbuyer@dropdrone.com';

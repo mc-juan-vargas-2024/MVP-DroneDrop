@@ -72,7 +72,7 @@
             </div>
         </div>
 
-        <form action="{{ env('PAYU_URL') }}" method="POST">
+        <form action="{{ $payuUrl }}" method="POST">
             <input type="hidden" name="merchantId"      value="{{ $merchantId }}">
             <input type="hidden" name="accountId"       value="{{ $accountId }}">
             <input type="hidden" name="description"     value="{{ $description }}">
