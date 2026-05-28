@@ -55,22 +55,45 @@
             {{-- Mapa de seguimiento --}}
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 border-b border-orange-100">
-                    <h3 class="font-bold text-lg text-orange-700">🗺️ Seguimiento de Entrega</h3>
-                    <p class="text-sm text-gray-500 mt-1">Zona de cobertura de entregas — Bucaramanga, Colombia</p>
+                    <h3 class="font-bold text-lg text-orange-700">🗺️ Ubicación del Restaurante</h3>
+                    @if($commerce)
+                        <p class="text-sm text-gray-500 mt-1">{{ $commerce->name }} — {{ $commerce->address }}</p>
+                    @else
+                        <p class="text-sm text-gray-500 mt-1">Bucaramanga, Colombia</p>
+                    @endif
                 </div>
-                <div class="w-full" style="height: 400px;">
-                    <iframe
-                        width="100%"
-                        height="100%"
-                        style="border:0;"
-                        loading="lazy"
-                        allowfullscreen
-                        referrerpolicy="no-referrer-when-downgrade"
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63537.44890823!2d-73.17263!3d7.11392!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e683f43a4c1a8d7%3A0xd31d6f8e86a5b6de!2sBucaramanga%2C+Santander!5e0!3m2!1ses!2sco!4v1700000000000">
-                    </iframe>
-                </div>
+                <div id="order-map" class="w-full" style="height: 400px;"></div>
             </div>
 
         </div>
     </div>
 </x-app-layout>
+
+@push('scripts')
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const mapEl = document.getElementById('order-map');
+        if (!mapEl) return;
+
+        @if($commerce && $commerce->latitude && $commerce->longitude)
+            const lat = {{ $commerce->latitude }};
+            const lng = {{ $commerce->longitude }};
+            const map = L.map('order-map').setView([lat, lng], 15);
+
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; OpenStreetMap contributors'
+            }).addTo(map);
+
+            L.marker([lat, lng]).addTo(map)
+                .bindPopup('<strong>{{ $commerce->name }}</strong><br>{{ $commerce->address }}')
+                .openPopup();
+        @else
+            const map = L.map('order-map').setView([7.11392, -73.1198], 13);
+
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; OpenStreetMap contributors'
+            }).addTo(map);
+        @endif
+    });
+</script>
+@endpush

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Commerce;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 
 class CommerceController extends Controller
 {
@@ -42,8 +43,39 @@ class CommerceController extends Controller
             'closing_time' => 'nullable|date_format:H:i',
         ]);
 
-        $commerce->update($request->only('name', 'address', 'opening_time', 'closing_time'));
+        $data = $request->only('name', 'address', 'opening_time', 'closing_time');
+
+        if ($request->address !== $commerce->address) {
+            $coords = $this->geocode($request->address);
+            if ($coords) {
+                $data['latitude'] = $coords['lat'];
+                $data['longitude'] = $coords['lng'];
+            }
+        }
+
+        $commerce->update($data);
 
         return redirect()->route('commerce.dashboard')->with('status', 'Profile updated!');
+    }
+
+    private function geocode(string $address): ?array
+    {
+        $response = Http::withHeaders([
+            'User-Agent' => 'DroneDropApp/1.0',
+        ])->get('https://nominatim.openstreetmap.org/search', [
+            'q' => $address . ', Bucaramanga, Colombia',
+            'format' => 'json',
+            'limit' => 1,
+        ]);
+
+        if ($response->successful() && count($response->json()) > 0) {
+            $result = $response->json()[0];
+            return [
+                'lat' => $result['lat'],
+                'lng' => $result['lon'],
+            ];
+        }
+
+        return null;
     }
 }

@@ -13,7 +13,10 @@ class OrderController extends Controller
     public function index()
     {
         $orders = auth()->user()->orders()->where('status', '!=', 'pending')->latest()->get();
-        return view('orders.index', compact('orders'));
+
+        $commerce = $orders->first()?->commerce;
+
+        return view('orders.index', compact('orders', 'commerce'));
     }
 
     public function viewCart()
